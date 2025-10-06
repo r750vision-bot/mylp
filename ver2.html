@@ -8,16 +8,18 @@
   <!-- Font Awesome（SNSアイコン用） -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Orbitron', sans-serif;
       background-color: #0a0a0a;
       color: #f0f0f0;
-      margin-top: 180px; /* ヘッダー固定分の余白 */
+      margin-top: 180px;
     }
 
-    /* ヘッダー固定 */
     header {
       position: fixed;
       top: 0;
@@ -31,16 +33,43 @@
       transition: padding 0.3s ease;
     }
 
+    /* タイトル（ネオンエフェクト） */
     h1 {
-      font-size: 3rem;
-      color: #fff;
+      font-size: 3.8rem;
+      font-weight: 900;
+      color: #ff6600;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      letter-spacing: 3px;
       margin-bottom: 25px;
+      text-shadow: 
+        0 0 10px #ff6600,
+        0 0 20px #ff8533,
+        0 0 40px #ff6600,
+        0 0 80px #ff3300;
+      animation: flicker 2.5s infinite alternate, fadeIn 2s ease-out;
       transition: font-size 0.3s ease;
     }
 
-    /* SNSアイコン */
+    @keyframes flicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+          0 0 10px #ff6600,
+          0 0 20px #ff8533,
+          0 0 40px #ff6600,
+          0 0 80px #ff3300;
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        text-shadow: none;
+        opacity: 0.4;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .sns-top {
       display: flex;
       justify-content: center;
@@ -84,6 +113,13 @@
       text-align: center;
     }
 
+    h2 {
+      font-size: 2rem;
+      color: #ff6600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
     .gear-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -117,6 +153,8 @@
       color: white;
       border-radius: 6px;
       text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 1px;
       transition: background-color 0.3s ease;
     }
 
@@ -147,7 +185,6 @@
   <section id="gears">
     <h2>使用ギア</h2>
     <div class="gear-list">
-      <!-- Gear 1: AGV K3 -->
       <div class="gear-item">
         <img src="https://dainese-cdn.thron.com/delivery/public/image/dainese/63aedd6e-cd45-41d8-a5a8-16fd3611979a/px6qct/std/615x615/2118381007_004_1.png" alt="AGV K3 Helmet">
         <h3>AGV K3</h3>
@@ -155,7 +192,6 @@
         <a href="https://a.r10.to/h5kkBU" target="_blank" class="button">詳しく見る</a>
       </div>
 
-      <!-- Gear 2: SMX Plus v2 Boot -->
       <div class="gear-item">
         <img src="https://www.okada-ridemoto.com/files_thumbnail/webp/_files_product_2221019_c_2221019-1231-fr_smx-plus-v2-boot_jpg_w500px_h448px.webp" alt="SMX Plus v2 Boot">
         <h3>Alpinestars SMX Plus v2 Boot</h3>
@@ -163,7 +199,6 @@
         <a href="https://a.r10.to/h5Wj8E" target="_blank" class="button">詳しく見る</a>
       </div>
 
-      <!-- Gear 3: SP-8 v3 Glove -->
       <div class="gear-item">
         <img src="https://www.webbikeworld.com/wp-content/uploads/2023/05/Alpinestars-SP8-V3-Glove-Review-13-921x921.jpg" alt="SP-8 v3 Glove">
         <h3>Alpinestars SP-8 v3 Glove</h3>
@@ -171,7 +206,6 @@
         <a href="https://a.r10.to/hgzWGL" target="_blank" class="button">詳しく見る</a>
       </div>
 
-      <!-- Gear 4: GoPro HERO12 -->
       <div class="gear-item">
         <img src="https://th.bing.com/th/id/OIP.Z_2lRzlte4TKKEDYhATUpAHaEK?w=327&h=184&c=7&r=0&o=7&cb=12&pid=1.7&rm=3" alt="GoPro HERO12">
         <h3>GoPro HERO12 Black</h3>
@@ -186,7 +220,6 @@
   </footer>
 
   <script>
-    // スクロールでヘッダー縮小・タイトル縮小・SNSアイコン縮小
     window.addEventListener('scroll', () => {
       const header = document.querySelector('header');
       const title = document.querySelector('header h1');
@@ -194,11 +227,11 @@
 
       if(window.scrollY > 50){
         header.style.padding = '10px 20px 20px';
-        title.style.fontSize = '2rem';
+        title.style.fontSize = '2.2rem';
         sns.style.transform = 'scale(0.9)';
       } else {
         header.style.padding = '20px 20px 40px';
-        title.style.fontSize = '3rem';
+        title.style.fontSize = '3.8rem';
         sns.style.transform = 'scale(1)';
       }
     });
