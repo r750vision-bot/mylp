@@ -3,84 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>r750visi | バイクギア & SNSリンク</title>
-
-  <!-- Font Awesome（SNSアイコン用） -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
-
+  <title>r750visi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     body {
       margin: 0;
       font-family: 'Orbitron', sans-serif;
       background-color: #0a0a0a;
-      color: #f0f0f0;
-      margin-top: 180px;
+      color: #fff;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    header {
+    /* --- 背景画像（GSX-Rシルエット） --- */
+    body::before {
+      content: "";
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      padding: 20px 20px 40px;
+      height: 100%;
+      background-image: url('https://i.imgur.com/6fy4u5n.png'); /* ← 仮画像。透過PNGをここに差し替えOK */
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 85%;
+      opacity: 0.08;
+      z-index: -1;
+      filter: grayscale(100%) brightness(60%);
+    }
+
+    header {
       text-align: center;
-      background: linear-gradient(180deg, #111, #0a0a0a);
-      z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      transition: padding 0.3s ease;
+      padding: 60px 20px 40px;
+      background: linear-gradient(180deg, rgba(15,15,15,0.9), rgba(10,10,10,0.95));
+      backdrop-filter: blur(4px);
     }
 
-    /* タイトル（ネオンエフェクト） */
+    /* タイトル */
     h1 {
-      font-size: 3.8rem;
-      font-weight: 900;
-      color: #ff6600;
-      letter-spacing: 4px;
-      text-transform: uppercase;
+      font-size: 3rem;
+      background: linear-gradient(90deg, #ff6600, #ffaa00, #ff6600);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 4s linear infinite;
+      letter-spacing: 3px;
       margin-bottom: 25px;
-      text-shadow: 
-        0 0 10px #ff6600,
-        0 0 20px #ff8533,
-        0 0 40px #ff6600,
-        0 0 80px #ff3300;
-      animation: flicker 2.5s infinite alternate, fadeIn 2s ease-out;
-      transition: font-size 0.3s ease;
+      text-shadow: 0 0 10px rgba(255,100,0,0.3);
     }
 
-    @keyframes flicker {
-      0%, 18%, 22%, 25%, 53%, 57%, 100% {
-        text-shadow:
-          0 0 10px #ff6600,
-          0 0 20px #ff8533,
-          0 0 40px #ff6600,
-          0 0 80px #ff3300;
-        opacity: 1;
-      }
-      20%, 24%, 55% {
-        text-shadow: none;
-        opacity: 0.4;
-      }
+    @keyframes shine {
+      0% { background-position: 0%; }
+      100% { background-position: 200%; }
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
+    /* SNSアイコン */
     .sns-top {
       display: flex;
       justify-content: center;
-      gap: 30px;
-      transition: transform 0.3s ease;
+      gap: 25px;
+      flex-wrap: wrap;
     }
 
     .sns-top a {
-      font-size: 2.5rem;
-      width: 70px;
-      height: 70px;
+      font-size: 2rem;
+      width: 65px;
+      height: 65px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -88,8 +77,7 @@
       border-radius: 50%;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
       color: #ff6600;
-      transition: transform 0.3s, background-color 0.3s, color 0.3s, box-shadow 0.3s;
-      animation: glow 2s infinite alternate;
+      transition: transform 0.3s, background-color 0.3s;
     }
 
     .sns-top a.instagram { color: #E4405F; }
@@ -97,77 +85,58 @@
     .sns-top a.youtube { color: #FF0000; }
 
     .sns-top a:hover {
-      transform: scale(1.2);
+      transform: scale(1.15);
       background-color: #333;
-      box-shadow: 0 0 20px rgba(255,102,0,0.7);
     }
 
-    @keyframes glow {
-      0% { box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-      50% { box-shadow: 0 6px 20px rgba(255,102,0,0.6); }
-      100% { box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-    }
-
+    /* ギア紹介 */
     section {
-      padding: 60px 20px;
+      padding: 50px 20px 80px;
       text-align: center;
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: #ff6600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px rgba(255,100,0,0.3);
     }
 
     .gear-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
     }
 
-    .gear-item {
-      background-color: #151515;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(255, 102, 0, 0.2);
-      transition: transform 0.3s ease;
-    }
-
-    .gear-item:hover {
-      transform: translateY(-5px);
-    }
-
-    .gear-item img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    a.button {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 25px;
-      background-color: #ff6600;
-      color: white;
-      border-radius: 6px;
+    .gear-list a {
+      color: #fff;
       text-decoration: none;
-      font-weight: 700;
-      letter-spacing: 1px;
-      transition: background-color 0.3s ease;
+      background-color: rgba(26,26,26,0.9);
+      padding: 12px 20px;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 350px;
+      border: 1px solid #333;
+      transition: background-color 0.3s, transform 0.3s;
+      backdrop-filter: blur(3px);
     }
 
-    a.button:hover {
-      background-color: #ff8533;
+    .gear-list a:hover {
+      background-color: #ff6600;
+      color: #000;
+      transform: scale(1.05);
     }
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      background-color: #0f0f0f;
-      font-size: 0.9rem;
-      color: #888;
+    /* スマホ対応 */
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+      .sns-top a { width: 55px; height: 55px; font-size: 1.8rem; }
+      .gear-list a { width: 90%; }
+      body::before {
+        background-size: 130%;
+        opacity: 0.1;
+      }
     }
   </style>
 </head>
@@ -182,59 +151,14 @@
     </div>
   </header>
 
-  <section id="gears">
-    <h2>使用ギア</h2>
+  <section>
+    <h2>GEAR SETUP</h2>
     <div class="gear-list">
-      <div class="gear-item">
-        <img src="https://dainese-cdn.thron.com/delivery/public/image/dainese/63aedd6e-cd45-41d8-a5a8-16fd3611979a/px6qct/std/615x615/2118381007_004_1.png" alt="AGV K3 Helmet">
-        <h3>AGV K3</h3>
-        <p>軽量で空力性能に優れたスポーツツーリングヘルメット。</p>
-        <a href="https://a.r10.to/h5kkBU" target="_blank" class="button">詳しく見る</a>
-      </div>
-
-      <div class="gear-item">
-        <img src="https://www.okada-ridemoto.com/files_thumbnail/webp/_files_product_2221019_c_2221019-1231-fr_smx-plus-v2-boot_jpg_w500px_h448px.webp" alt="SMX Plus v2 Boot">
-        <h3>Alpinestars SMX Plus v2 Boot</h3>
-        <p>高速走行にも対応するレーシングブーツ。安全性とデザインを両立。</p>
-        <a href="https://a.r10.to/h5Wj8E" target="_blank" class="button">詳しく見る</a>
-      </div>
-
-      <div class="gear-item">
-        <img src="https://www.webbikeworld.com/wp-content/uploads/2023/05/Alpinestars-SP8-V3-Glove-Review-13-921x921.jpg" alt="SP-8 v3 Glove">
-        <h3>Alpinestars SP-8 v3 Glove</h3>
-        <p>フルレザー構造で操作性と安全性を両立した定番モデル。</p>
-        <a href="https://a.r10.to/hgzWGL" target="_blank" class="button">詳しく見る</a>
-      </div>
-
-      <div class="gear-item">
-        <img src="https://th.bing.com/th/id/OIP.Z_2lRzlte4TKKEDYhATUpAHaEK?w=327&h=184&c=7&r=0&o=7&cb=12&pid=1.7&rm=3" alt="GoPro HERO12">
-        <h3>GoPro HERO12 Black</h3>
-        <p>迫力のある映像で走りを記録する高性能アクションカメラ。</p>
-        <a href="https://a.r10.to/hPbXqL" class="button">詳しく見る</a>
-      </div>
+      <a href="https://www.agvhelmets.jp/product/18381007004?ColorCode=004" target="_blank">AGV K3 Helmet</a>
+      <a href="https://www.okada-ridemoto.com/products/detail/42/" target="_blank">SMX PLUS v2 Boot</a>
+      <a href="https://www.okada-ridemoto.com/products/detail/23/" target="_blank">Alpinestars Gloves</a>
+      <a href="#" target="_blank">GoPro HERO10</a>
     </div>
   </section>
-
-  <footer>
-    <p>© 2025 r750visi. All Rights Reserved.</p>
-  </footer>
-
-  <script>
-    window.addEventListener('scroll', () => {
-      const header = document.querySelector('header');
-      const title = document.querySelector('header h1');
-      const sns = document.querySelector('.sns-top');
-
-      if(window.scrollY > 50){
-        header.style.padding = '10px 20px 20px';
-        title.style.fontSize = '2.2rem';
-        sns.style.transform = 'scale(0.9)';
-      } else {
-        header.style.padding = '20px 20px 40px';
-        title.style.fontSize = '3.8rem';
-        sns.style.transform = 'scale(1)';
-      }
-    });
-  </script>
 </body>
 </html>
