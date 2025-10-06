@@ -5,18 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>r750visi | バイクギア & SNSリンク</title>
 
+  <!-- Font Awesome（SNSアイコン用） -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Orbitron', sans-serif;
       background-color: #0a0a0a;
       color: #f0f0f0;
       margin-top: 180px;
     }
 
-    /* ヘッダー固定 */
     header {
       position: fixed;
       top: 0;
@@ -32,10 +35,10 @@
 
     /* タイトル（ネオンエフェクト） */
     h1 {
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       font-weight: 900;
       color: #ff6600;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       text-transform: uppercase;
       margin-bottom: 25px;
       text-shadow: 
@@ -47,7 +50,6 @@
       transition: font-size 0.3s ease;
     }
 
-    /* ネオン点滅アニメーション */
     @keyframes flicker {
       0%, 18%, 22%, 25%, 53%, 57%, 100% {
         text-shadow:
@@ -63,13 +65,11 @@
       }
     }
 
-    /* フェードイン */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* SNSアイコン */
     .sns-top {
       display: flex;
       justify-content: center;
@@ -113,6 +113,13 @@
       text-align: center;
     }
 
+    h2 {
+      font-size: 2rem;
+      color: #ff6600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
     .gear-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -146,6 +153,8 @@
       color: white;
       border-radius: 6px;
       text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 1px;
       transition: background-color 0.3s ease;
     }
 
@@ -222,7 +231,7 @@
         sns.style.transform = 'scale(0.9)';
       } else {
         header.style.padding = '20px 20px 40px';
-        title.style.fontSize = '3.5rem';
+        title.style.fontSize = '3.8rem';
         sns.style.transform = 'scale(1)';
       }
     });
